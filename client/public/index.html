@@ -9,7 +9,15 @@
     <!-- Include Mermaid.js -->
     <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
+    mermaid.initialize({ 
+        startOnLoad: true,
+        theme: 'default',
+        flowchart: {
+            useMaxWidth: true,
+            htmlLabels: true,
+            curve: 'basis'
+        }
+    });
     </script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
             <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -269,7 +277,7 @@
   
       <!-- Mermaid Diagram for DOM Structure -->
        <div class="mermaid">
-          graph TD;
+          flowchart TD
           HTML[HTML Document] --> HEAD[Head]
           HTML --> BODY[Body]
           HEAD --> META1[Meta Charset]
