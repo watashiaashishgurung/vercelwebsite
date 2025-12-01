@@ -1,0 +1,456 @@
+:root {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+    --transition-speed: 600ms;
+  }
+  
+  body {
+    color: black;
+    background-color: rgb(48, 48, 48);
+    margin: 0;
+    padding: 0;
+  }
+
+  
+  body::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: #6649b8;
+  }
+  
+  main {
+    margin-top: 5rem;
+    padding: 1rem;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 5rem;
+    background-color: var(--bg-primary);
+    transition: height 600ms ease;
+    /* overflow: scroll; */ /* Remove this line */
+    border-radius: 10px;
+  }
+  
+  .navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nav-item {
+    height: 100%;
+    margin: 40px;
+    position: relative;
+  }
+  
+  .nav-item:last-child {
+    margin-left: auto;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7);
+    transition: var(--transition-speed);
+  }
+  
+  .nav-link:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+  }
+  
+  .link-text {
+    display: none;
+    margin-left: 1rem;
+  }
+  
+  .nav-link svg {
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+  }
+  
+  .fa-primary {
+    color: #ff7eee;
+  }
+  
+  .fa-secondary {
+    color: #df49a6;
+  }
+  
+  .fa-primary,
+  .fa-secondary {
+    transition: var(--transition-speed);
+  }
+  
+  .logo {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    font-size: 1.5rem;
+    letter-spacing: 0.3ch;
+    height: 100%;
+  }
+  
+  .logo svg {
+    transform: rotate(0deg);
+    transition: var(--transition-speed);
+  }
+  
+  .logo-text
+  {
+    display: inline;
+    position: absolute;
+    left: -999px;
+    transition: var(--transition-speed);
+  }
+  
+  .navbar:hover .logo svg {
+    transform: rotate(90deg);
+  }
+  
+  /* Small screens */
+  @media only screen and (max-width: 600px) {
+    .navbar {
+      bottom: 0;
+      width: 100vw;
+      height: 5rem;
+    }
+  
+    .logo {
+      display: none;
+    }
+  
+    .navbar-nav {
+      flex-direction: row;
+    }
+  
+    .nav-link {
+      justify-content: center;
+    }
+  
+    main {
+      margin: 0;
+    }
+  }
+  
+  /* Large screens */
+  @media only screen and (min-width: 600px) {
+    .navbar {
+      top: 0;
+      width: 100%;
+      height: 5rem;
+    }
+  
+    .navbar:hover {
+      height: 16rem;
+    }
+  
+    .navbar:hover .link-text {
+      display: inline;
+    }
+  
+    .navbar:hover .logo svg
+    {
+      margin-top: 11rem;
+    }
+  
+    .navbar:hover .logo-text
+    {
+      left: 0px;
+    }
+  }
+  
+  .dark {
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #141418;
+    --bg-secondary: #141418;
+  }
+  
+  .light {
+    --text-primary: #1f1f1f;
+    --text-secondary: #000000;
+    --bg-primary: #e4e4e4;
+    --bg-secondary: #e4e4e4;
+  }
+  
+  .solar {
+    --text-primary: #576e75;
+    --text-secondary: #35535c;
+    --bg-primary: #f5e5b8;
+    --bg-secondary: #f5e5b8;
+  }
+  
+  .theme-icon {
+    display: none;
+  }
+  
+  .dark #darkIcon {
+    display: block;
+  }
+  
+  .light #lightIcon {
+    display: block;
+  }
+  
+  .solar #solarIcon {
+    display: block;
+  }
+/* added by me boxes to improve layout */
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);;
+    margin-top: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+/* added by me dropdown menu */
+  .nav-item {
+      position: relative;
+      border-radius: 10px;
+  }
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      border-radius: 10px;
+      background-color: var(--bg-primary); /* Match the theme color */
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+  }
+  .dropdown-content a {
+      color: var(--text-primary); /* Match the theme color */
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+  }
+  .dropdown-content a:hover {
+      background-color: var(--bg-secondary); /* Match the theme color */
+      color: var(--text-secondary); /* Match the theme color */
+  }
+  .nav-item:hover .dropdown-content {
+      display: block;
+  }
+  .boxone
+    {
+        margin-top: 200px;
+        
+        background-color: var(--bg-secondary);
+        color: var(--text-secondary);
+        transition: margin-top var(--transition-speed); /* Add transition */
+    }
+
+ /* Skills */
+  
+ .all_skills {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  text-align: center;
+}
+
+.skill {
+  border: 1px solid gray;
+  display: block;
+  border-radius: 6px;
+  text-align: center;
+  margin: 50px;
+  padding: 10px;
+  width: 2in;
+  font-size: 20px;
+  box-shadow: 0 3px 10px gray;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.skill:hover {
+transform: scale(1.1);
+box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skill img {
+  height: 35px;
+  align-items: center;
+}
+
+.skills h6 {
+  align-items: center;
+  font-size: 20px;
+  margin-block-start: 8px;
+  margin-block-end: 5px;
+  font-weight: bold;
+} 
+
+.skills p {
+  align-items: center;
+  font-size: 15px;
+  color: gray;
+  margin-block-start: 5px;
+  margin-block-end: 5px;
+} 
+
+.flex_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+ /* Recommendations */
+  
+ .all_recommendations {
+  display: flex;
+  align-items: center;
+  margin-left: 1in;
+  flex-direction: row;
+  flex-flow: wrap;
+  padding: 20px;
+}
+
+.recommendation {
+  font-style: italic;
+  text-align: left;
+  width: 21.875rem;
+  padding: 1rem;
+  background-color: #333; /* Changed to dark gray */
+  color: white; /* Changed font color to white */
+  border-radius: 11px;
+  box-shadow: 0 3px 10px var(--primary-shadow);
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid gray;
+  font-size: 18px;
+  height: 150px;
+}
+
+.recommendation span {
+  color: #7600bc;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+  /* Recommendation Form */
+  
+  input, textarea {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    margin: 10px;  
+    width:100%;
+    background-color: #333; /* Changed to dark gray */
+    color: white; /* Changed font color to white */
+  }
+  
+  fieldset {
+    display: flexbox;
+    align-content: center;
+    justify-content: center;  
+    padding: 25px; 
+    margin-left: 50px; 
+    margin-right: 50px;   
+    border: thin solid white;
+    width: 50%;
+  }
+  
+  /* Form Pop-up */
+  
+  .popup {
+    width: auto; /* Adjust width to fit content */
+    height: auto; /* Adjust height to fit content */
+    background-color: #e8bcf0;
+    border-radius: 3mm;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    position: fixed;
+    padding: 10px 20px; /* Adjust padding for better appearance */
+    visibility: hidden;
+    z-index: 1000; /* Ensure popup is above other elements */
+  }
+  
+  .popup p {
+    font-size: 18px;
+    color: #7600bc;
+    margin: 0; /* Remove default margin */
+  }
+  
+  .popup button {
+    background-color: #fff;
+    border: 1px solid #7600bc;
+    color: #7600bc;
+    display: block;
+    border-radius: 6px;
+    text-align: center;
+    margin: 50px;
+    padding: 10px;
+    width: 2in;
+    font-size: 20px;
+    margin-left: 25%;
+  }
+  
+  .popup button:hover {
+    background-color: #fff;
+    border: 2px solid #7600bc;
+    color: #7600bc;
+    display: block;
+    font-weight: bolder;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 25%;
+  }
+
+  .popup p {
+    font-size: 18px;
+    color: #7600bc;
+  }
+
+  /* Pokéfetcher code here */
+
+  #pokemonContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pokemon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid #0288d1;
+    border-radius: 10px;
+    background-color: darkgra;
+}
+
+.pokemon-card img {
+    width: 100px;
+    height: 100px;
+}
